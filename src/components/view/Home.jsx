@@ -75,12 +75,14 @@ const MainView = () => {
 
   return (
     <>
-      <h1
-        id="title"
-        style={{ position: "absolute", top: "100px", color: "#fff" }}
-      >
-        What's the weather like today?
-      </h1>
+      <div>
+        <h1
+          id="title"
+          style={{ position: "absolute", top: "100px", color: "#fff" }}
+        >
+          What's the weather like today?
+        </h1>
+      </div>
       <div id="weather-container">
         <form id="form-container" onSubmit={handleSubmit}>
           <input
@@ -272,108 +274,80 @@ const MainView = () => {
         )}
       </div>
       <div id="weather-container" style={{ marginLeft: 20 }}>
-        {isLoading ? (
-          <p>Loading...</p>
-        ) : (
-          <>
-            <h3>Tomorrow</h3>
-            {/* CLEAR DAY & NIGHT */}
-            {dailyWeather.list &&
-              dailyWeather.list[0].weather[0].icon === "01d" && (
-                <>
-                  <p>The perfect day for a walk!</p>
-                  <img
-                    className="weather-icon"
-                    src={day_clear}
-                    alt="weather icon"
-                  />
-                </>
-              )}
-            {dailyWeather.list &&
-              dailyWeather.list[0].weather[0].icon === "01n" && (
-                <>
-                  <p>The perfect day for a walk!</p>
-                  <img
-                    className="weather-icon"
-                    src={night_clear}
-                    alt="weather icon"
-                  />
-                </>
-              )}
-            {/* PARTIAL CLOUD DAY & NIGHT */}
-            {dailyWeather.list &&
-              dailyWeather.list[0].weather[0].icon === "02d" && (
-                <>
-                  <p>The perfect day for a walk!</p>
-                  <img
-                    className="weather-icon"
-                    src={day_partial_cloud}
-                    alt="weather icon"
-                  />
-                </>
-              )}
-            {dailyWeather.list &&
-              dailyWeather.list[0].weather[0].icon === "02n" && (
-                <>
-                  <p>The perfect day for a walk!</p>
-                  <img
-                    className="weather-icon"
-                    src={night_partial_cloud}
-                    alt="weather icon"
-                  />
-                </>
-              )}
-            {/* CLOUDY DAY & NIGHT */}
-            {dailyWeather.list &&
-              dailyWeather.list[0].weather[0].icon === "03d" && (
-                <>
-                  <p>The perfect day for a walk!</p>
-                  <img
-                    className="weather-icon"
-                    src={cloudy}
-                    alt="weather icon"
-                  />
-                </>
-              )}
-            {dailyWeather.list &&
-              dailyWeather.list[0].weather[0].icon === "03n" && (
-                <>
-                  <p>The perfect day for a walk!</p>
-                  <img
-                    className="weather-icon"
-                    src={cloudy}
-                    alt="weather icon"
-                  />
-                </>
-              )}
-            {/* OVERCAST DAY & NIGHT */}
-            {dailyWeather.list &&
-              dailyWeather.list[0].weather[0].icon === "04d" && (
-                <>
-                  <p>The perfect day for a walk!</p>
-                  <img
-                    className="weather-icon"
-                    src={overcast}
-                    alt="weather icon"
-                  />
-                </>
-              )}
-            {dailyWeather.list &&
-              dailyWeather.list[0].weather[0].icon === "04n" && (
-                <>
-                  <p>The perfect day for a walk!</p>
-                  <img
-                    className="weather-icon"
-                    src={overcast}
-                    alt="weather icon"
-                  />
-                </>
-              )}
-            {weatherData.main && (
-              <h3>{kelvinToFarenheit(weatherData.main.temp)}&deg; C</h3>
-            )}
-          </>
-        )}
+        <div>
+          <h3>Tomorrow</h3>
+          {/* CLEAR DAY & NIGHT */}
+          {dailyWeather.list && dailyWeather.list[0].weather[0].icon === "01d" && (
+            <>
+              <p>The perfect day for a walk!</p>
+              <img
+                className="weather-icon"
+                src={day_clear}
+                alt="weather icon"
+              />
+            </>
+          )}
+          {dailyWeather.list && dailyWeather.list[0].weather[0].icon === "01n" && (
+            <>
+              <p>The perfect day for a walk!</p>
+              <img
+                className="weather-icon"
+                src={night_clear}
+                alt="weather icon"
+              />
+            </>
+          )}
+          {/* PARTIAL CLOUD DAY & NIGHT */}
+          {dailyWeather.list && dailyWeather.list[0].weather[0].icon === "02d" && (
+            <>
+              <p>The perfect day for a walk!</p>
+              <img
+                className="weather-icon"
+                src={day_partial_cloud}
+                alt="weather icon"
+              />
+            </>
+          )}
+          {dailyWeather.list && dailyWeather.list[0].weather[0].icon === "02n" && (
+            <>
+              <p>The perfect day for a walk!</p>
+              <img
+                className="weather-icon"
+                src={night_partial_cloud}
+                alt="weather icon"
+              />
+            </>
+          )}
+          {/* CLOUDY DAY & NIGHT */}
+          {dailyWeather.list && dailyWeather.list[0].weather[0].icon === "03d" && (
+            <>
+              <p>The perfect day for a walk!</p>
+              <img className="weather-icon" src={cloudy} alt="weather icon" />
+            </>
+          )}
+          {dailyWeather.list && dailyWeather.list[0].weather[0].icon === "03n" && (
+            <>
+              <p>The perfect day for a walk!</p>
+              <img className="weather-icon" src={cloudy} alt="weather icon" />
+            </>
+          )}
+          {/* OVERCAST DAY & NIGHT */}
+          {dailyWeather.list && dailyWeather.list[0].weather[0].icon === "04d" && (
+            <>
+              <p>The perfect day for a walk!</p>
+              <img className="weather-icon" src={overcast} alt="weather icon" />
+            </>
+          )}
+          {dailyWeather.list && dailyWeather.list[0].weather[0].icon === "04n" && (
+            <>
+              <p>The perfect day for a walk!</p>
+              <img className="weather-icon" src={overcast} alt="weather icon" />
+            </>
+          )}
+          {weatherData.main && (
+            <h3>{kelvinToFarenheit(weatherData.main.temp)}&deg; C</h3>
+          )}
+        </div>
       </div>
     </>
   );
